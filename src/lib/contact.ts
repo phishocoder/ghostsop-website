@@ -3,6 +3,7 @@ export type ContactFormValues = {
   email: string;
   businessType: string;
   websiteOrInstagram?: string;
+  monthlyInquiries?: string;
   biggestProblem: string;
 };
 
@@ -18,6 +19,7 @@ export function normalizeContactForm(values: ContactFormValues): ContactFormValu
     email: trimValue(values.email).toLowerCase(),
     businessType: trimValue(values.businessType),
     websiteOrInstagram: trimValue(values.websiteOrInstagram),
+    monthlyInquiries: trimValue(values.monthlyInquiries),
     biggestProblem: trimValue(values.biggestProblem),
   };
 }

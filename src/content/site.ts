@@ -177,12 +177,29 @@ export const siteContent = {
   contact: {
     heading: "Set It Up Once. Stop Losing Leads Forever.",
     subtext: "Ready to stop leaving clients on the table?",
-    buttonLabel: "Get Started at GhostSOP.com",
-    formTitle: "Tell us where your lead handling is breaking",
+    buttonLabel: "Continue to Booking",
+    formTitle: "Fill out the short form, then book your review",
+    helper:
+      "Short qualification form. Then straight to a 20-minute GhostSOP Lead System Review.",
+    monthlyInquiryOptions: [
+      "Under 10",
+      "10-25",
+      "26-50",
+      "51-100",
+      "100+",
+    ],
+    nextSteps: [
+      "Fill out the short intake form",
+      "Book a 20-minute GhostSOP Lead System Review",
+      "If it's a fit, GhostSOP installs your lead handling system",
+    ],
     successConfigured:
-      "Thanks. Your request is in and GhostSOP has been notified.",
+      "Got it. Next step: book your 20-minute GhostSOP Lead System Review.",
     successFallback:
-      "Thanks. Your request was captured, but email delivery is not configured yet.",
+      "Got it. Next step: book your 20-minute GhostSOP Lead System Review.",
+    redirecting: "Redirecting you to booking now...",
+    fallbackBooking:
+      "Calendly is not configured yet. Add NEXT_PUBLIC_CALENDLY_URL to enable the booking handoff.",
     error:
       "Something went wrong while submitting the form. Please try again or email hello@ghostsop.com.",
     businessTypes: [

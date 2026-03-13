@@ -48,6 +48,12 @@ cp .env.example .env.local
 - `NEXT_PUBLIC_SITE_URL`
   - Example: `https://ghostsop.com`
 
+### Optional for Calendly redirect after form submission
+
+- `NEXT_PUBLIC_CALENDLY_URL`
+  - Booking URL used after a successful form submit
+  - Example: `https://calendly.com/your-handle/ghostsop-lead-system-review`
+
 ### Optional for contact form email delivery
 
 - `RESEND_API_KEY`
@@ -58,6 +64,7 @@ cp .env.example .env.local
   - Verified sender used by Resend, for example `GhostSOP <leads@yourdomain.com>`
 
 If the email env vars are missing, the form still submits successfully and degrades gracefully by returning a fallback success message instead of failing.
+If `NEXT_PUBLIC_CALENDLY_URL` is missing, the form still submits but the booking redirect is skipped and the success state explains that booking is not configured yet.
 
 ## Content Editing
 
@@ -72,7 +79,7 @@ Edit that file to update headings, CTA labels, audience lists, FAQ items, or del
 - Frontend form component: `src/components/contact-form.tsx`
 - Server route: `src/app/api/contact/route.ts`
 
-Validation runs on both the client and the server. When email delivery is configured, the route sends submissions through Resend. When it is not configured, submissions are logged server-side and the UI still shows a clear success state.
+Validation runs on both the client and the server. When email delivery is configured, the route sends submissions through Resend. When it is not configured, submissions are logged server-side and the UI still shows a clear success state. When Calendly is configured, successful submissions redirect the user to booking automatically.
 
 ## Deployment
 
@@ -85,6 +92,7 @@ vercel --prod
 ### Recommended Vercel Environment Variables
 
 - `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_CALENDLY_URL`
 - `RESEND_API_KEY`
 - `CONTACT_EMAIL_TO`
 - `CONTACT_EMAIL_FROM`

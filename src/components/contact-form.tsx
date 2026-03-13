@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { siteContent } from "@/content/site";
 import {
   ContactFormErrors,
@@ -15,12 +15,13 @@ const initialValues: ContactFormValues = {
   email: "",
   businessType: "",
   websiteOrInstagram: "",
+  monthlyInquiries: "",
   biggestProblem: "",
 };
 
 type SubmissionState =
   | { status: "idle" }
-  | { status: "success"; message: string }
+  | { status: "success"; message: string; redirecting: boolean }
   | { status: "error"; message: string };
 
 export function ContactForm() {
@@ -32,6 +33,23 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const businessTypes = useMemo(() => siteContent.contact.businessTypes, []);
+  const monthlyInquiryOptions = useMemo(
+    () => siteContent.contact.monthlyInquiryOptions,
+    [],
+  );
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim();
+
+  useEffect(() => {
+    if (submissionState.status !== "success" || !submissionState.redirecting || !calendlyUrl) {
+      return;
+    }
+
+    const redirectTimer = window.setTimeout(() => {
+      window.location.assign(calendlyUrl);
+    }, 1200);
+
+    return () => window.clearTimeout(redirectTimer);
+  }, [calendlyUrl, submissionState]);
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -66,6 +84,7 @@ export function ContactForm() {
       setSubmissionState({
         status: "success",
         message: data.message || siteContent.contact.successConfigured,
+        redirecting: Boolean(calendlyUrl),
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : siteContent.contact.error;
@@ -97,6 +116,7 @@ export function ContactForm() {
       <div>
         <p className="text-xs uppercase tracking-[0.3em] text-sky-200/70">Contact form</p>
         <h3 className="mt-2 text-2xl font-semibold text-white">{siteContent.contact.formTitle}</h3>
+        <p className="mt-2 text-sm leading-6 text-slate-400">{siteContent.contact.helper}</p>
       </div>
 
       <label className="grid gap-2">
@@ -179,6 +199,25 @@ export function ContactForm() {
       </label>
 
       <label className="grid gap-2">
+        <span className="text-sm font-medium text-slate-200">
+          Approximate monthly inquiries (optional)
+        </span>
+        <select
+          className={`${baseFieldClasses} border-white/10`}
+          name="monthlyInquiries"
+          value={values.monthlyInquiries}
+          onChange={(event) => updateField("monthlyInquiries", event.target.value)}
+        >
+          <option value="">Select a range</option>
+          {monthlyInquiryOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label className="grid gap-2">
         <span className="text-sm font-medium text-slate-200">Biggest lead handling problem</span>
         <textarea
           className={`${baseFieldClasses} min-h-32 resize-y ${errors.biggestProblem ? "border-rose-400/70" : "border-white/10"}`}
@@ -199,14 +238,33 @@ export function ContactForm() {
       <button
         type="submit"
         className="inline-flex min-h-14 items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 px-6 text-base font-semibold text-slate-950 transition hover:scale-[1.01] hover:shadow-[0_16px_50px_rgba(56,189,248,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300 disabled:cursor-not-allowed disabled:opacity-60"
-        disabled={isSubmitting}
+        disabled={isSubmitting || (submissionState.status === "success" && submissionState.redirecting)}
       >
-        {isSubmitting ? "Submitting..." : siteContent.contact.buttonLabel}
+        {isSubmitting
+          ? "Submitting..."
+          : submissionState.status === "success" && submissionState.redirecting
+            ? "Redirecting to Booking..."
+            : siteContent.contact.buttonLabel}
       </button>
 
       <div aria-live="polite" className="min-h-6 text-sm">
         {submissionState.status === "success" ? (
-          <p className="text-emerald-300">{submissionState.message}</p>
+          <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 px-4 py-4 text-emerald-200">
+            <p className="font-medium">{submissionState.message}</p>
+            {submissionState.redirecting ? (
+              <>
+                <p className="mt-2 text-sm text-emerald-100">{siteContent.contact.redirecting}</p>
+                <a
+                  href={calendlyUrl}
+                  className="mt-3 inline-flex text-sm font-semibold text-white underline underline-offset-4"
+                >
+                  Continue to booking now
+                </a>
+              </>
+            ) : (
+              <p className="mt-2 text-sm text-emerald-100">{siteContent.contact.fallbackBooking}</p>
+            )}
+          </div>
         ) : null}
         {submissionState.status === "error" ? (
           <p className="text-rose-300">{submissionState.message}</p>

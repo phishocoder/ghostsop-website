@@ -58,6 +58,7 @@ export async function POST(request: Request) {
           `Email: ${normalized.email}`,
           `Business Type: ${normalized.businessType}`,
           `Website or Instagram: ${normalized.websiteOrInstagram || "Not provided"}`,
+          `Approximate Monthly Inquiries: ${normalized.monthlyInquiries || "Not provided"}`,
           `Biggest Lead Handling Problem:`,
           normalized.biggestProblem,
         ].join("\n"),

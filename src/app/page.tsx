@@ -340,14 +340,21 @@ export default function Home() {
               <div className="mt-8 grid gap-4">
                 <Surface className="bg-white/[0.02]">
                   <p className="text-sm uppercase tracking-[0.24em] text-slate-400">What happens next</p>
-                  <p className="mt-3 text-lg leading-7 text-slate-200">
-                    You describe the leak in your lead process. GhostSOP maps the intake gaps, then installs the form, response flow, booking handoff, and tracking system that closes them.
-                  </p>
+                  <ol className="mt-4 grid gap-4">
+                    {siteContent.contact.nextSteps.map((step, index) => (
+                      <li key={step} className="flex items-start gap-4">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-500/15 text-sm font-semibold text-sky-100">
+                          {index + 1}
+                        </div>
+                        <p className="pt-1 text-base leading-7 text-slate-200">{step}</p>
+                      </li>
+                    ))}
+                  </ol>
                 </Surface>
                 <Surface className="bg-white/[0.02]">
-                  <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Offer clarity</p>
+                  <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Why this stays simple</p>
                   <p className="mt-3 text-lg leading-7 text-slate-200">
-                    One-time install. No ads. No SEO. No social media management. No vague monthly marketing retainer.
+                    Short form first. Founder-led review second. If there is a clear fit, GhostSOP installs the lead handling system without turning this into a long sales process.
                   </p>
                 </Surface>
               </div>
