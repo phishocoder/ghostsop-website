@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GhostSOP Website
 
-## Getting Started
+High-converting single-page marketing site for GhostSOP, built with Next.js 14 App Router and Tailwind CSS.
 
-First, run the development server:
+## Project Overview
+
+GhostSOP is positioned as a one-time lead handling system install for service businesses that already get inquiries but lose them because their intake and response process is broken.
+
+This site is intentionally focused on:
+
+- lead handling, not lead generation
+- one-time system install, not ongoing marketing retainers
+- concrete deliverables, not vague AI or agency language
+
+## Tech Stack
+
+- Next.js 14 App Router
+- React 18
+- Tailwind CSS
+- TypeScript
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Copy `.env.example` to `.env.local` and fill in what you need.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env.local
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Required for metadata / canonical URLs
 
-## Deploy on Vercel
+- `NEXT_PUBLIC_SITE_URL`
+  - Example: `https://ghostsop.com`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Optional for contact form email delivery
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `RESEND_API_KEY`
+  - Resend API key used by the `/api/contact` route
+- `CONTACT_EMAIL_TO`
+  - Destination inbox for form submissions
+- `CONTACT_EMAIL_FROM`
+  - Verified sender used by Resend, for example `GhostSOP <leads@yourdomain.com>`
+
+If the email env vars are missing, the form still submits successfully and degrades gracefully by returning a fallback success message instead of failing.
+
+## Content Editing
+
+All landing page copy and section data live in:
+
+- `src/content/site.ts`
+
+Edit that file to update headings, CTA labels, audience lists, FAQ items, or deliverables without touching layout code.
+
+## Form Handling
+
+- Frontend form component: `src/components/contact-form.tsx`
+- Server route: `src/app/api/contact/route.ts`
+
+Validation runs on both the client and the server. When email delivery is configured, the route sends submissions through Resend. When it is not configured, submissions are logged server-side and the UI still shows a clear success state.
+
+## Deployment
+
+### Vercel CLI
+
+```bash
+vercel --prod
+```
+
+### Recommended Vercel Environment Variables
+
+- `NEXT_PUBLIC_SITE_URL`
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL_TO`
+- `CONTACT_EMAIL_FROM`
+
+## Structure
+
+- `src/app/page.tsx` - main landing page
+- `src/app/layout.tsx` - metadata and global shell
+- `src/app/opengraph-image.tsx` - generated OG image
+- `src/components/hero-diagram.tsx` - hero system visual
+- `src/components/contact-form.tsx` - lead capture form
+- `src/content/site.ts` - editable marketing copy
+- `AUDIT.md` - live site audit that informed the rebuild
