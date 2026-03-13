@@ -278,6 +278,24 @@ export default function Home() {
           </p>
         </section>
 
+        <section className="py-16 md:py-24">
+          <SectionHeading
+            title={siteContent.example.heading}
+            description={siteContent.example.description}
+          />
+          <Surface className="mt-10 border-sky-400/20 bg-sky-500/[0.08]">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-100">
+              {siteContent.example.title}
+            </p>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-100">
+              {siteContent.example.body}
+            </p>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
+              {siteContent.example.supportLine}
+            </p>
+          </Surface>
+        </section>
+
         <section id="included" className="py-16 md:py-24">
           <SectionHeading
             title={siteContent.included.heading}
@@ -387,6 +405,9 @@ export default function Home() {
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
                 {siteContent.contact.subtext}
+              </p>
+              <p className="mt-4 max-w-xl text-base font-medium leading-7 text-sky-100">
+                {siteContent.contact.supportLine}
               </p>
               <p className="mt-4 max-w-xl text-base leading-7 text-slate-400">
                 {siteContent.contact.intro}

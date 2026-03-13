@@ -4,7 +4,7 @@ export type ContactFormValues = {
   businessType: string;
   websiteOrInstagram?: string;
   monthlyInquiries?: string;
-  biggestProblem: string;
+  biggestProblem?: string;
 };
 
 export type ContactFormErrors = Partial<Record<keyof ContactFormValues, string>>;
@@ -38,10 +38,6 @@ export function validateContactForm(values: ContactFormValues): ContactFormError
 
   if (!normalized.businessType) {
     errors.businessType = "Choose your business type.";
-  }
-
-  if (!normalized.biggestProblem || normalized.biggestProblem.length < 20) {
-    errors.biggestProblem = "Describe the lead handling problem in a bit more detail.";
   }
 
   if (

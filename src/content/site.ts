@@ -9,7 +9,7 @@ export const siteContent = {
     eyebrow: "One-time lead handling system install for service businesses",
     headline: "You're Not Losing Clients Because of Bad Marketing.",
     subheadline: "You're losing them because you respond too late.",
-    body: "GhostSOP installs the intake and response system that captures every lead, sends an immediate reply, and guides qualified inquiries toward booking. It gives your business a working front desk flow without adding a full-time hire or turning your setup into a complicated tech project.",
+    body: "GhostSOP installs the intake and response system that captures every lead, sends an immediate reply, and guides qualified inquiries toward booking. It gives your business a working front desk flow without adding a full-time hire or turning your setup into a complicated build.",
     primaryCtaLabel: "Fix My Lead System",
     primaryCtaHref: "#contact",
     secondaryCtaLabel: "See What's Included",
@@ -87,37 +87,37 @@ export const siteContent = {
         label: "Dental Clinics",
         icon: "stethoscope",
         description:
-          "New patient inquiries often come in between procedures, missed calls, and front-desk overload. If nobody replies fast with the right intake questions, high-value bookings quietly disappear.",
+          "New patient inquiries often come in between procedures, missed calls, and front-desk overload. GhostSOP helps those leads get captured quickly and moved into a clear booking path instead of sitting untouched.",
       },
       {
         label: "Med Spas",
         icon: "sparkles",
         description:
-          "Leads ask about treatments, pricing, and availability across Instagram and web forms at all hours. When the first reply is slow or inconsistent, they book with the next spa that feels easier to reach.",
+          "Leads ask about treatments, pricing, and availability across forms, DMs, and text. GhostSOP gives those inquiries an immediate response and a cleaner path to booking before they drift to the next provider.",
       },
       {
         label: "Coaches",
         icon: "graduation-cap",
         description:
-          "Discovery-call leads stall when DMs turn into long manual back-and-forth. Without a clear intake and booking path, warm prospects cool off before they ever get on your calendar.",
+          "Discovery-call leads often die in manual back-and-forth. GhostSOP gives you a simple intake, response, and booking flow so warm prospects do not cool off before they ever get on your calendar.",
       },
       {
         label: "Agencies",
         icon: "briefcase",
         description:
-          "Sales inquiries land while the team is busy servicing clients, so qualification gets delayed or skipped. That means poor follow-up on good-fit leads and too much time wasted on bad-fit ones.",
+          "Sales inquiries land while client work is already taking up the day. GhostSOP helps you respond faster, qualify better, and stop good-fit leads from getting buried under delivery work.",
       },
       {
         label: "Home Services",
         icon: "house",
         description:
-          "Calls, texts, and form fills come in while crews are on the road or inside jobs. If urgent leads do not get captured and routed immediately, they move to the next contractor who picks up first.",
+          "Calls, texts, and quote requests come in while crews are on the road or inside jobs. GhostSOP helps capture those leads, respond immediately, and keep urgent opportunities from going to the next company that answers.",
       },
       {
         label: "Freelancers",
         icon: "laptop",
         description:
-          "When delivery and sales both depend on one person, inquiries sit while client work takes priority. Good leads get lost simply because there is no front desk process holding the line.",
+          "When one person handles both delivery and sales, inquiries sit too long. GhostSOP gives solo operators a lightweight front desk flow so leads do not get lost just because work comes first.",
       },
     ],
   },
@@ -137,6 +137,16 @@ export const siteContent = {
     ],
     supportLine:
       "You are not buying a custom app. You are buying a practical lead handling system install.",
+  },
+  example: {
+    heading: "What a Completed Install Can Look Like",
+    description:
+      "A completed GhostSOP install gives your business a clear front-door system instead of a messy mix of DMs, forms, texts, and missed follow-up.",
+    title: "Example",
+    body:
+      "A med spa owner gets a branded intake form, an instant confirmation text, lead notifications, a booking link, and a simple tracking system so new inquiries stop sitting in DMs and start moving toward appointments.",
+    supportLine:
+      "Same business. Same leads. Cleaner intake, faster response, and fewer missed opportunities.",
   },
   included: {
     heading: "One Setup. Runs Itself.",
@@ -194,10 +204,10 @@ export const siteContent = {
   notFor: {
     heading: "GhostSOP Is Not for Everyone",
     items: [
-      "Not for businesses looking for ads or SEO",
-      "Not for companies needing a full-time marketing agency",
-      "Not for complex enterprise sales teams",
-      "Best for small service businesses already getting inquiries but dropping them",
+      "Not for businesses looking for ads, SEO, or social media management",
+      "Not for companies wanting an ongoing agency relationship to handle growth for them",
+      "Not for complex enterprise sales teams with long, multi-stage pipelines",
+      "Best for small service businesses already getting inquiries but dropping leads because response and intake are inconsistent",
     ],
   },
   faq: {
@@ -239,17 +249,12 @@ export const siteContent = {
     heading: "Set It Up Once. Stop Losing Leads Forever.",
     subtext:
       "Fill out the short form and book a 20-minute GhostSOP Lead System Review.",
+    supportLine:
+      "GhostSOP is delivered as a one-time setup, not a monthly marketing retainer.",
     buttonLabel: "Continue to Booking",
     formTitle: "Fill out the short form, then book your review",
     helper:
-      "Short qualification form. Then straight to a 20-minute GhostSOP Lead System Review.",
-    monthlyInquiryOptions: [
-      "Under 10",
-      "10-25",
-      "26-50",
-      "51-100",
-      "100+",
-    ],
+      "Short form first. Booking second. We'll get the deeper details on the review call.",
     nextSteps: [
       "Fill out the short intake form",
       "Book a 20-minute GhostSOP Lead System Review",

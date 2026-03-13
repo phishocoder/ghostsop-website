@@ -14,9 +14,6 @@ const initialValues: ContactFormValues = {
   name: "",
   email: "",
   businessType: "",
-  websiteOrInstagram: "",
-  monthlyInquiries: "",
-  biggestProblem: "",
 };
 
 type SubmissionState =
@@ -33,10 +30,6 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const businessTypes = useMemo(() => siteContent.contact.businessTypes, []);
-  const monthlyInquiryOptions = useMemo(
-    () => siteContent.contact.monthlyInquiryOptions,
-    [],
-  );
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim();
 
   useEffect(() => {
@@ -176,61 +169,6 @@ export function ContactForm() {
         {errors.businessType ? (
           <span id="business-type-error" className="text-sm text-rose-300">
             {errors.businessType}
-          </span>
-        ) : null}
-      </label>
-
-      <label className="grid gap-2">
-        <span className="text-sm font-medium text-slate-200">Website or Instagram (optional)</span>
-        <input
-          className={`${baseFieldClasses} ${errors.websiteOrInstagram ? "border-rose-400/70" : "border-white/10"}`}
-          name="websiteOrInstagram"
-          value={values.websiteOrInstagram}
-          onChange={(event) => updateField("websiteOrInstagram", event.target.value)}
-          aria-invalid={Boolean(errors.websiteOrInstagram)}
-          aria-describedby={errors.websiteOrInstagram ? "website-error" : undefined}
-          placeholder="yourbusiness.com or @yourhandle"
-        />
-        {errors.websiteOrInstagram ? (
-          <span id="website-error" className="text-sm text-rose-300">
-            {errors.websiteOrInstagram}
-          </span>
-        ) : null}
-      </label>
-
-      <label className="grid gap-2">
-        <span className="text-sm font-medium text-slate-200">
-          Approximate monthly inquiries (optional)
-        </span>
-        <select
-          className={`${baseFieldClasses} border-white/10`}
-          name="monthlyInquiries"
-          value={values.monthlyInquiries}
-          onChange={(event) => updateField("monthlyInquiries", event.target.value)}
-        >
-          <option value="">Select a range</option>
-          {monthlyInquiryOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label className="grid gap-2">
-        <span className="text-sm font-medium text-slate-200">Biggest lead handling problem</span>
-        <textarea
-          className={`${baseFieldClasses} min-h-32 resize-y ${errors.biggestProblem ? "border-rose-400/70" : "border-white/10"}`}
-          name="biggestProblem"
-          value={values.biggestProblem}
-          onChange={(event) => updateField("biggestProblem", event.target.value)}
-          aria-invalid={Boolean(errors.biggestProblem)}
-          aria-describedby={errors.biggestProblem ? "problem-error" : undefined}
-          placeholder="Example: Instagram DMs sit too long, website leads come in incomplete, and nothing routes cleanly to booking."
-        />
-        {errors.biggestProblem ? (
-          <span id="problem-error" className="text-sm text-rose-300">
-            {errors.biggestProblem}
           </span>
         ) : null}
       </label>
