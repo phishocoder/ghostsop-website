@@ -1,5 +1,6 @@
 import { ContactForm } from "@/components/contact-form";
 import { HeroDiagram } from "@/components/hero-diagram";
+import { GhostSopLogo } from "@/components/logo";
 import { siteContent } from "@/content/site";
 import {
   BriefcaseBusiness,
@@ -73,13 +74,8 @@ export default function Home() {
         <header className="sticky top-4 z-20 mb-10 rounded-full border border-white/10 bg-slate-950/70 px-4 py-3 backdrop-blur">
           <div className="flex items-center justify-between gap-4">
             <a href="#top" className="flex min-w-0 items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-lg font-semibold text-white">
-                G
-              </div>
               <div className="min-w-0">
-                <p className="text-sm font-semibold uppercase tracking-[0.26em] text-white">
-                  {siteContent.nav.logo}
-                </p>
+                <GhostSopLogo textClassName="text-lg sm:text-xl" />
                 <p className="hidden truncate text-sm text-slate-400 sm:block">
                   {siteContent.nav.tagline}
                 </p>
@@ -442,7 +438,7 @@ export default function Home() {
         <footer className="border-t border-white/10 py-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-lg font-semibold text-white">{siteContent.nav.logo}</p>
+              <GhostSopLogo textClassName="text-lg sm:text-xl" />
               <p className="mt-2 text-sm text-slate-400">{siteContent.nav.tagline}</p>
             </div>
             <nav className="flex flex-wrap gap-4 text-sm text-slate-300">
