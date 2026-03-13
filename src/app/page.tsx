@@ -132,6 +132,9 @@ export default function Home() {
                 The front desk system for businesses without a front desk.
               </span>
             </div>
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-400">
+              {siteContent.hero.supportLine}
+            </p>
           </div>
 
           <HeroDiagram />
@@ -158,7 +161,7 @@ export default function Home() {
         <section id="solution" className="py-16 md:py-24">
           <SectionHeading
             title={siteContent.solution.heading}
-            description="GhostSOP installs a simple five-step system that handles the first part of your client journey automatically."
+            description={siteContent.solution.description}
           />
           <div className="mt-10 grid gap-4">
             {siteContent.solution.steps.map((step, index) => (
@@ -255,10 +258,30 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="py-16 md:py-24">
+          <SectionHeading
+            title={siteContent.deliverables.heading}
+            description={siteContent.deliverables.description}
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {siteContent.deliverables.items.map((item) => (
+              <Surface key={item} className="flex items-start gap-4">
+                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-sky-500/15 text-sm font-semibold text-sky-100">
+                  ✓
+                </div>
+                <p className="text-lg font-medium text-white">{item}</p>
+              </Surface>
+            ))}
+          </div>
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300">
+            {siteContent.deliverables.supportLine}
+          </p>
+        </section>
+
         <section id="included" className="py-16 md:py-24">
           <SectionHeading
             title={siteContent.included.heading}
-            description="GhostSOP is sold as a one-time system install. The deliverables are concrete, operational, and built to keep working after setup."
+            description={siteContent.included.description}
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {siteContent.included.items.map((item) => (
@@ -270,6 +293,34 @@ export default function Home() {
               </Surface>
             ))}
           </div>
+        </section>
+
+        <section className="py-16 md:py-24">
+          <SectionHeading
+            title={siteContent.setup.heading}
+            description={siteContent.setup.description}
+          />
+          <div className="mt-10 grid gap-4">
+            {siteContent.setup.steps.map((step, index) => (
+              <Surface
+                key={step.title}
+                className="grid items-start gap-6 md:grid-cols-[5rem_minmax(0,1fr)]"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-3xl border border-sky-400/20 bg-sky-500/10 text-2xl font-semibold text-sky-200">
+                  {index + 1}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-white">{step.title}</h3>
+                  <p className="mt-3 max-w-3xl text-base leading-7 text-slate-300">
+                    {step.description}
+                  </p>
+                </div>
+              </Surface>
+            ))}
+          </div>
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300">
+            {siteContent.setup.supportLine}
+          </p>
         </section>
 
         <section className="py-16 md:py-24">
@@ -336,6 +387,9 @@ export default function Home() {
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
                 {siteContent.contact.subtext}
+              </p>
+              <p className="mt-4 max-w-xl text-base leading-7 text-slate-400">
+                {siteContent.contact.intro}
               </p>
               <div className="mt-8 grid gap-4">
                 <Surface className="bg-white/[0.02]">
