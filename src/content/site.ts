@@ -74,12 +74,42 @@ export const siteContent = {
     qualifier:
       "If inquiries come in but bookings don't follow — this is for you.",
     items: [
-      { label: "Dental Clinics", code: "DN" },
-      { label: "Med Spa", code: "MS" },
-      { label: "Coaches", code: "CH" },
-      { label: "Agencies", code: "AG" },
-      { label: "Home Services", code: "HS" },
-      { label: "Freelancers", code: "FR" },
+      {
+        label: "Dental Clinics",
+        icon: "stethoscope",
+        description:
+          "New patient inquiries often come in between procedures, missed calls, and front-desk overload. If nobody replies fast with the right intake questions, high-value bookings quietly disappear.",
+      },
+      {
+        label: "Med Spas",
+        icon: "sparkles",
+        description:
+          "Leads ask about treatments, pricing, and availability across Instagram and web forms at all hours. When the first reply is slow or inconsistent, they book with the next spa that feels easier to reach.",
+      },
+      {
+        label: "Coaches",
+        icon: "graduation-cap",
+        description:
+          "Discovery-call leads stall when DMs turn into long manual back-and-forth. Without a clear intake and booking path, warm prospects cool off before they ever get on your calendar.",
+      },
+      {
+        label: "Agencies",
+        icon: "briefcase",
+        description:
+          "Sales inquiries land while the team is busy servicing clients, so qualification gets delayed or skipped. That means poor follow-up on good-fit leads and too much time wasted on bad-fit ones.",
+      },
+      {
+        label: "Home Services",
+        icon: "house",
+        description:
+          "Calls, texts, and form fills come in while crews are on the road or inside jobs. If urgent leads do not get captured and routed immediately, they move to the next contractor who picks up first.",
+      },
+      {
+        label: "Freelancers",
+        icon: "laptop",
+        description:
+          "When delivery and sales both depend on one person, inquiries sit while client work takes priority. Good leads get lost simply because there is no front desk process holding the line.",
+      },
     ],
   },
   included: {

@@ -1,6 +1,23 @@
 import { ContactForm } from "@/components/contact-form";
 import { HeroDiagram } from "@/components/hero-diagram";
 import { siteContent } from "@/content/site";
+import {
+  BriefcaseBusiness,
+  GraduationCap,
+  House,
+  LaptopMinimal,
+  Sparkles,
+  Stethoscope,
+} from "lucide-react";
+
+const audienceIcons = {
+  stethoscope: Stethoscope,
+  sparkles: Sparkles,
+  "graduation-cap": GraduationCap,
+  briefcase: BriefcaseBusiness,
+  house: House,
+  laptop: LaptopMinimal,
+} as const;
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -220,13 +237,18 @@ export default function Home() {
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {siteContent.audiences.items.map((item) => (
-              <Surface key={item.label} className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold uppercase tracking-[0.18em] text-sky-100">
-                  {item.code}
+              <Surface key={item.label} className="flex items-start gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sky-100">
+                  {(() => {
+                    const Icon = audienceIcons[item.icon];
+                    return <Icon className="h-6 w-6" aria-hidden="true" />;
+                  })()}
                 </div>
                 <div>
                   <p className="text-xl font-semibold text-white">{item.label}</p>
-                  <p className="mt-1 text-sm text-slate-400">Inbound leads are already happening here.</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">
+                    {item.description}
+                  </p>
                 </div>
               </Surface>
             ))}
