@@ -308,7 +308,7 @@ export const siteContent = {
       { label: "What GhostSOP Installs", href: "#solution" },
       { label: "What's Included", href: "#included" },
       { label: "FAQ", href: "#faq" },
-      { label: "Contact", href: "#contact" },
+      { label: "Contact", href: "mailto:hello@ghostsop.com" },
     ],
     copyright: "© 2026 GhostSOP. All rights reserved.",
   },
