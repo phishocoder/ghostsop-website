@@ -59,7 +59,7 @@ cp .env.example .env.local
 - `RESEND_API_KEY`
   - Resend API key used by the `/api/contact` route
 - `CONTACT_EMAIL_TO`
-  - Destination inbox for form submissions
+  - Destination inbox for form submissions, for example `hello@ghostsop.com`
 - `CONTACT_EMAIL_FROM`
   - Verified sender used by Resend, for example `GhostSOP <leads@yourdomain.com>`
 
