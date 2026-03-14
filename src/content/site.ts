@@ -214,6 +214,11 @@ export const siteContent = {
     heading: "FAQ",
     items: [
       {
+        question: "What is GhostSOP?",
+        answer:
+          "GhostSOP is an invisible system (ghost) that runs the standard operating procedure (SOP) for handling new customer inquiries so every lead gets a fast reply and a clear path to booking.",
+      },
+      {
         question: "Do I need a CRM already?",
         answer:
           "No. GhostSOP can work with what you already use or set up a simple lead tracking system if you do not have one yet.",
