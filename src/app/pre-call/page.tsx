@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GhostSOP Lead System Review",
+  title: "GhostSOP Lead Leak Audit",
   description:
-    "Your GhostSOP Lead System Review is booked. Here's what to expect on the call.",
+    "Your GhostSOP Lead Leak Audit is booked. Here's what to expect on the call.",
   alternates: {
     canonical: "/pre-call",
   },
   openGraph: {
-    title: "GhostSOP Lead System Review",
+    title: "GhostSOP Lead Leak Audit",
     description:
-      "Your GhostSOP Lead System Review is booked. Here's what to expect on the call.",
+      "Your GhostSOP Lead Leak Audit is booked. Here's what to expect on the call.",
     url: "/pre-call",
   },
   twitter: {
-    title: "GhostSOP Lead System Review",
+    title: "GhostSOP Lead Leak Audit",
     description:
-      "Your GhostSOP Lead System Review is booked. Here's what to expect on the call.",
+      "Your GhostSOP Lead Leak Audit is booked. Here's what to expect on the call.",
   },
 };
 
@@ -71,8 +71,8 @@ function buildGoogleCalendarUrl({
   }
 
   const details = assignedTo
-    ? `GhostSOP Lead System Review with ${assignedTo}. This is a working session focused on how your business currently handles inbound leads and where opportunities may be slipping through.`
-    : "GhostSOP Lead System Review. This is a working session focused on how your business currently handles inbound leads and where opportunities may be slipping through.";
+    ? `GhostSOP Lead Leak Audit with ${assignedTo}. This is a working session focused on how your business currently handles inbound leads and where opportunities may be slipping through.`
+    : "GhostSOP Lead Leak Audit. This is a working session focused on how your business currently handles inbound leads and where opportunities may be slipping through.";
 
   const params = new URLSearchParams({
     action: "TEMPLATE",
@@ -113,7 +113,7 @@ function Section({
 }
 
 export default function PreCallPage({ searchParams }: PreCallPageProps) {
-  const eventTypeName = searchParams?.event_type_name || "GhostSOP Lead System Review";
+  const eventTypeName = searchParams?.event_type_name || "Lead Leak Audit";
   const calendarUrl =
     searchParams?.event_start_time && searchParams?.event_end_time
       ? buildGoogleCalendarUrl({

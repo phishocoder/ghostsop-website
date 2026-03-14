@@ -214,6 +214,11 @@ export const siteContent = {
     heading: "FAQ",
     items: [
       {
+        question: "How much does GhostSOP cost?",
+        answer:
+          "GhostSOP is delivered as a one-time system install, not a monthly marketing retainer.\n\nPricing depends on how complex your current lead flow is and what tools you already use, but most GhostSOP installs fall in the low four-figure range.\n\nDuring the 20-minute Lead Leak Audit we look at how your leads currently come in, where they’re getting lost, and what it would take to install a clean intake and response system for your business.\n\nIf it's a fit, we quote the project before any work begins.\n\nNo ongoing contracts required.",
+      },
+      {
         question: "What is GhostSOP?",
         answer:
           "GhostSOP is an invisible system (ghost) that runs the standard operating procedure (SOP) for handling new customer inquiries so every lead gets a fast reply and a clear path to booking.",
@@ -239,21 +244,21 @@ export const siteContent = {
           "That still works. GhostSOP is built for messy real-world intake, including DMs, texts, and leads that do not start on a formal website form.",
       },
       {
-        question: "Is this ongoing monthly work?",
-        answer:
-          "No. The core offer is a one-time setup that runs on its own after installation. Ongoing marketing services are not part of the offer.",
-      },
-      {
         question: "How fast can this be set up?",
         answer:
           "Setup timing depends on your current tools and how fragmented your intake process is, but the goal is to install quickly and get your front desk flow working without dragging the project out.",
+      },
+      {
+        question: "Is this ongoing monthly work?",
+        answer:
+          "No. The core offer is a one-time setup that runs on its own after installation. Ongoing marketing services are not part of the offer.",
       },
     ],
   },
   contact: {
     heading: "Set It Up Once. Stop Losing Leads Forever.",
     subtext:
-      "Fill out the short form and book a 20-minute GhostSOP Lead System Review.",
+      "Fill out the short form and book a 20-minute Lead Leak Audit.",
     supportLine:
       "GhostSOP is delivered as a one-time setup, not a monthly marketing retainer.",
     buttonLabel: "Continue to Booking",
@@ -262,14 +267,14 @@ export const siteContent = {
       "Short form first. Booking second. We'll get the deeper details on the review call.",
     nextSteps: [
       "Fill out the short intake form",
-      "Book a 20-minute GhostSOP Lead System Review",
+      "Book a 20-minute Lead Leak Audit",
       "If it's a fit, GhostSOP installs your lead handling system",
     ],
     intro: "Tell us where leads are getting lost and we'll look at the simplest fix.",
     successConfigured:
-      "Got it. Next step: book your 20-minute GhostSOP Lead System Review.",
+      "Got it. Next step: book your 20-minute Lead Leak Audit.",
     successFallback:
-      "Got it. Next step: book your 20-minute GhostSOP Lead System Review.",
+      "Got it. Next step: book your 20-minute Lead Leak Audit.",
     redirecting: "Redirecting you to booking now...",
     fallbackBooking:
       "Calendly is not configured yet. Add NEXT_PUBLIC_CALENDLY_URL to enable the booking handoff.",
