@@ -33,6 +33,57 @@ const checklistItems = {
   ],
 } as const;
 
+type PreCallPageProps = {
+  searchParams?: {
+    event_type_name?: string;
+    event_start_time?: string;
+    event_end_time?: string;
+    assigned_to?: string;
+  };
+};
+
+function formatGoogleCalendarDate(dateString: string) {
+  const parsedDate = new Date(dateString);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return null;
+  }
+
+  return parsedDate.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+}
+
+function buildGoogleCalendarUrl({
+  eventTypeName,
+  eventStartTime,
+  eventEndTime,
+  assignedTo,
+}: {
+  eventTypeName: string;
+  eventStartTime: string;
+  eventEndTime: string;
+  assignedTo?: string;
+}) {
+  const startDate = formatGoogleCalendarDate(eventStartTime);
+  const endDate = formatGoogleCalendarDate(eventEndTime);
+
+  if (!startDate || !endDate) {
+    return null;
+  }
+
+  const details = assignedTo
+    ? `GhostSOP Lead System Review with ${assignedTo}. This is a working session focused on how your business currently handles inbound leads and where opportunities may be slipping through.`
+    : "GhostSOP Lead System Review. This is a working session focused on how your business currently handles inbound leads and where opportunities may be slipping through.";
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: eventTypeName,
+    dates: `${startDate}/${endDate}`,
+    details,
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 function BulletList({ items }: { items: readonly string[] }) {
   return (
     <ul className="grid gap-4">
@@ -61,13 +112,24 @@ function Section({
   );
 }
 
-export default function PreCallPage() {
+export default function PreCallPage({ searchParams }: PreCallPageProps) {
+  const eventTypeName = searchParams?.event_type_name || "GhostSOP Lead System Review";
+  const calendarUrl =
+    searchParams?.event_start_time && searchParams?.event_end_time
+      ? buildGoogleCalendarUrl({
+          eventTypeName,
+          eventStartTime: searchParams.event_start_time,
+          eventEndTime: searchParams.event_end_time,
+          assignedTo: searchParams.assigned_to,
+        })
+      : null;
+
   return (
     <main className="min-h-screen bg-[linear-gradient(180deg,#040816_0%,#08101a_100%)] px-6 py-14 md:px-8 md:py-20">
       <div className="mx-auto max-w-[700px] [font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]">
         <div className="mb-10">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-200/70">
-            GhostSOP Lead System Review
+            {eventTypeName}
           </p>
         </div>
 
@@ -105,13 +167,21 @@ export default function PreCallPage() {
             <p className="mt-5 text-base leading-7 text-slate-200">
               Show up on time and we&apos;ll get straight to work.
             </p>
-            <a
-              href="#"
-              aria-disabled="true"
-              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 text-sm font-semibold text-slate-300 opacity-70"
-            >
-              Add the call to your calendar
-            </a>
+            {calendarUrl ? (
+              <>
+                <a
+                  href={calendarUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 text-sm font-semibold text-slate-200 transition hover:border-sky-300/40 hover:bg-white/10 hover:text-white"
+                >
+                  Add to Google Calendar
+                </a>
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  Your confirmation email should also include calendar options.
+                </p>
+              </>
+            ) : null}
           </section>
         </div>
       </div>
