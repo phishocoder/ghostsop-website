@@ -210,6 +210,19 @@ export const siteContent = {
       "Best for small service businesses already getting inquiries but dropping leads because response and intake are inconsistent",
     ],
   },
+  playbook: {
+    heading: "Download the Free Playbook",
+    description:
+      "Not ready to book a Lead Leak Audit yet? Start with the short playbook that shows why warm inquiries go cold and what to tighten first.",
+    eyebrow: "Free PDF",
+    title: "You're Losing Them Because You Respond Too Late",
+    body:
+      "A practical breakdown of the lead leaks most service businesses miss and the intake fixes that keep more inquiries moving toward booking.",
+    buttonLabel: "Download the Free Playbook",
+    href: "/ghostsop-lead-leak-playbook.pdf",
+    supportLine:
+      "Read it first, then come back when you're ready for a one-time install.",
+  },
   faq: {
     heading: "FAQ",
     items: [

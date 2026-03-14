@@ -371,6 +371,40 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="py-16 md:py-24">
+          <SectionHeading
+            title={siteContent.playbook.heading}
+            description={siteContent.playbook.description}
+          />
+          <Surface className="mt-10 border-sky-400/20 bg-sky-500/[0.08]">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-100">
+                  {siteContent.playbook.eyebrow}
+                </p>
+                <h3 className="mt-4 text-3xl font-semibold text-white">
+                  {siteContent.playbook.title}
+                </h3>
+                <p className="mt-4 text-lg leading-8 text-slate-100">
+                  {siteContent.playbook.body}
+                </p>
+                <p className="mt-4 text-base leading-7 text-slate-300">
+                  {siteContent.playbook.supportLine}
+                </p>
+              </div>
+              <div className="shrink-0">
+                <a
+                  href={siteContent.playbook.href}
+                  download
+                  className="inline-flex min-h-14 items-center justify-center rounded-full border border-sky-300/30 bg-slate-950 px-7 text-base font-semibold text-sky-100 transition hover:border-sky-200 hover:bg-slate-900"
+                >
+                  {siteContent.playbook.buttonLabel}
+                </a>
+              </div>
+            </div>
+          </Surface>
+        </section>
+
         <section id="faq" className="py-16 md:py-24">
           <SectionHeading
             title={siteContent.faq.heading}
